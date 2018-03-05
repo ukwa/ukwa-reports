@@ -4,6 +4,7 @@ title = "UKWA Reports"
 theme = "minimal"
 #disqusShortname = "username" # delete this to disable disqus comments
 googleAnalytics = ""
+copyright = ""
 
 [params]
     author = "UK Web Archive"
