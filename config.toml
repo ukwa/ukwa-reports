@@ -1,4 +1,4 @@
-baseURL = "http://example.com/"
+baseURL = "http://intranet.wa.bl.uk/ukwa-reports/"
 languageCode = "en-gb"
 title = "UKWA Reports"
 theme = "minimal"
@@ -8,7 +8,7 @@ copyright = ""
 
 [params]
     author = "UK Web Archive"
-    description = "Techincal report site"
+    description = "Technical reports"
     githubUsername = "#"
     accent = "#2e6dd9"
     showBorder = true
