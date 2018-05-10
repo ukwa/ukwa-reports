@@ -12,3 +12,9 @@ services:
       - HUGO_THEME=minimal
       - HUGO_BASEURL=http://intranet.wa.bl.uk/ukwa-reports
     restart: always
+
+  logviewer:
+    image: ukwa/crawl-log-viewer
+    ports:
+     - "8000:8000"
+
