@@ -21,8 +21,16 @@
     <table>
     <tr><th>File</th><th>Kind</th><th>Date</th><th>Size [bytes]</th></tr>
     {{ range .Params.files }}
+    {{ $downloadUrl := print "http://hdfs.gtw.wa.bl.uk:14000/webhdfs/v1" .path "?user.name=access&op=OPEN" }}
     <tr>
-      <td><a href="http://hdfs.gtw.wa.bl.uk:14000/webhdfs/v1{{ .path }}?user.name=access&op=OPEN">{{ index (last 1 (split .path "/")) 0 }}</a></td>
+      <td>
+        {{ if eq .kind "crawl-logs" }}
+          <a href="http://intranet.wa.bl.uk:8000/?log_url={{ $downloadUrl }}">{{ index (last 1 (split .path "/")) 0 }}</a>
+        {{ else }}
+          {{ index (last 1 (split .path "/")) 0 }}
+        {{ end }}
+        &nbsp;<a href="{{ $downloadUrl }}">[download]</a>
+      </td>
       <td>{{ .kind }}</td>
       <td>{{ .timestamp }}</td>
       <td>{{ .filesize }}</td>

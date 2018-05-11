@@ -17,6 +17,7 @@ copyright = ""
     highlight = true
     highlightStyle = "solarized-dark"
     highlightLanguages = ["go", "haskell", "kotlin", "scala", "swift"]
+    css = ["https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css"]
 
 [[menu.main]]
     url = "/"
@@ -29,14 +30,19 @@ copyright = ""
     weight = 2
 
 [[menu.main]]
+    url = "/reports/"
+    name = "Reports"
+    weight = 3
+
+[[menu.main]]
     url = "/categories/"
     name = "Categories"
-    weight = 3
+    weight = 4
 
 [[menu.main]]
     url = "/tags/"
     name = "Tags"
-    weight = 4
+    weight = 5
 
 # Social icons to be shown on the right-hand side of the navigation bar
 # The "name" field should match the name of the icon to be used

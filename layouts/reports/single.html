@@ -1,0 +1,40 @@
+{{ partial "header" . }}
+
+<script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+
+<script type="text/javascript" charset="utf-8">
+$(document).ready( function () {
+      $('.data-table')
+        .addClass( 'nowrap' )
+        .dataTable( {
+          "lengthMenu": [ 50, 100, 200 ]
+        } );
+    } );
+</script>
+
+<style>
+.dataTable {
+  font-family: sans-serif;
+}
+</style>
+
+<main>
+
+    {{ partial "list-item" . }}
+
+    <br> <div class="text-justify">{{ .Content }}</div>
+
+    <!-- related posts with the same tags -->
+    {{ $related := first 3 (where (where (where .Site.Pages.ByDate.Reverse ".Type" "==" "post") ".Params.tags" "intersect" .Params.tags) "Permalink" "!=" .Permalink) }}
+
+    {{ if $related }}
+
+        <h4 class="page-header">Related</h4>
+
+        {{ range $related }} {{ partial "list-item" . }} {{ end }}
+
+    {{ end }}
+
+</main>
+
+{{ partial "footer.html" . }}
