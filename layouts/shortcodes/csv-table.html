@@ -1,5 +1,9 @@
+<p>
+  You can download the underlying dataset for the following table from <a href="{{ $.Site.BaseURL }}{{ .Get "src" }}">here</a>.
+</p>
+
 <table class="data-table compact stripe">
-  {{ $url := .Get "src" }}
+  {{ $url := print "content/" (.Get "src") }}
   {{ $sep := "," }}
   {{ range $i, $r := getCSV $sep $url }}
     {{ if eq 0 $i }}
@@ -21,3 +25,4 @@
   {{ end }}
   </tbody>
 </table>
+
