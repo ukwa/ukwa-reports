@@ -1,7 +1,3 @@
-<p>
-  You can download the underlying dataset for the following table from <a href="{{ $.Site.BaseURL }}{{ .Get "src" }}">here</a>.
-</p>
-
 <table class="data-table compact stripe">
   {{ $url := print "content/" (.Get "src") }}
   {{ $sep := "," }}
@@ -26,3 +22,6 @@
   </tbody>
 </table>
 
+<p>
+  You can download the underlying dataset for the above table from <a href="{{ $.Site.BaseURL }}{{ .Get "src" }}">here</a>.
+</p>
