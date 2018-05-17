@@ -3,7 +3,13 @@ title: HDFS Storage Reports
 description: Summaries generated from the data stored on HDFS.
 ---
 
+# Introduction
+
+The following statistics are generated based on the contents of the HDFS file system we use to store our data. We regularly scan the store and classify each item based on where it is stored, it's file type, and so on. Where possible, we also extract date information, e.g. using the date stamp within the filename of our WARC files to estimate the time that WARC data was collected (although strictly speaking we are using the date the file was created).
+
 All figures are in bytes unless otherwise stated.
+
+Deeper analysis can be performed using Python notebooks, e.g. [hdfs-reports-full.ipynb](http://intranet.wa.bl.uk/ukwa/jupyter/notebooks/ukwa-manage/notebooks/hdfs-reports-full.ipynb).
 
 # Non-Print Legal Deposit Content
 
