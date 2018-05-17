@@ -1,12 +1,11 @@
 {{ $id := base64Encode (.Get "src") }}
-<div id="chartContainer-{{ $id }}">
+<div id="chartContainer-{{ $id }}" class="chart" style="text-align: center;">
   <script src="https://d3js.org/d3.v4.min.js"></script>
   <script src="http://dimplejs.org/dist/dimple.v2.3.0.min.js"></script>
   <script type="text/javascript">
     var svg = dimple.newSvg("#chartContainer-{{ $id }}", 800, 400);
     d3.csv("{{ $.Site.BaseURL }}{{ .Get "src" }}", function (data) {
       var myChart = new dimple.chart(svg, data);
-      myChart.setBounds(30, 30, 710, 335)
       var x = myChart.addTimeAxis("x", "timestamp", "%Y-%m", "%Y-%m");
       x.addOrderRule("Date");
       x.title = "Date"
