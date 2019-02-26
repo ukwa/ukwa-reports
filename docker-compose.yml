@@ -15,7 +15,7 @@ services:
     environment:
       - HUGO_REFRESH_TIME=3600
       - HUGO_THEME=minimal
-      - HUGO_BASEURL=http://intranet.wa.bl.uk/ukwa-reports
+      - HUGO_BASEURL=http://intranet.wa.bl.uk/ukwa-reports/
     restart: always
 
   logviewer:
