@@ -1,0 +1,36 @@
+
+{{ $dir := (.Get "dir") }}
+
+{{ range (readDir $dir) }} 
+  
+  {{ if eq (path.Ext .Name) ".csv" }}
+    {{ $basename :=  strings.TrimSuffix ".csv"  .Name  }}
+    <h2>{{ dateFormat "Jan 2006" ( $basename )  }}</h2> 
+
+    <table class="data-table compact stripe"} >
+      {{ $url := print $dir (.Name)}}
+      {{ $sep := "," }}
+      {{ range $i, $r := getCSV $sep $url }}
+        {{ if eq 0 $i }}
+        <thead>
+        <tr>
+          {{ range $c := $r }}
+            <th>{{ $c }}</th>
+          {{ end }} 
+        </tr>
+        </thead>
+        <tbody>
+        {{ else }}
+        <tr>
+          {{ range $c := $r }}
+            <td>{{ $c }}</td>
+          {{ end }} 
+        </tr>
+        {{ end }} {{/* if eq 0 i */}}
+      {{ end }} {{/* range i,r */}}
+      </tbody>
+    </table>
+    
+  {{ end }} {{/* if csv */}}
+
+{{ end }} {{/* range readdir */}}
