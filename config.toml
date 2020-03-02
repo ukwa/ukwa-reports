@@ -1,4 +1,4 @@
-baseURL = "http://intranet.wa.bl.uk/ukwa-reports/"
+baseURL = ""
 languageCode = "en-gb"
 title = "UKWA Reports"
 theme = "minimal"

@@ -8,15 +8,9 @@ version: "3.2"
 services:
 
   hugo:
-    image: jojomi/hugo:latest
-    volumes:
-      - /mnt/gluster/wa/www/ukwa-reports/:/src
-      - /mnt/gluster/wa/www/html/ukwa-reports/:/output
-    environment:
-      - HUGO_REFRESH_TIME=3600
-      - HUGO_THEME=minimal
-      - HUGO_BASEURL=http://intranet.wa.bl.uk/ukwa-reports/
-    restart: always
+    build: .
+    ports:
+     - "1001:80"
 
   logviewer:
     image: ukwa/crawl-log-viewer
