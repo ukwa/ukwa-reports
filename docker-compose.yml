@@ -12,8 +12,3 @@ services:
     ports:
      - "1001:80"
 
-  logviewer:
-    image: ukwa/crawl-log-viewer
-    ports:
-     - "8000:8000"
-
