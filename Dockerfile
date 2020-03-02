@@ -9,5 +9,5 @@ ENV HUGO_DESTINATION=/onbuild
 RUN hugo
 
 FROM nginx
-COPY --from=hugo /onbuild /usr/share/nginx/html
+COPY --from=hugo /onbuild /usr/share/nginx/html/intranet
 
