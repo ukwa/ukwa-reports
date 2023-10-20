@@ -7,6 +7,7 @@ export PYDEVD_DISABLE_FILE_VALIDATION=1
 jb build --path-output . content/
 
 # Copy over CSV files, retaining the paths:
+echo Copying CSV files from the content folder to the _build: 
 cd content 
 find reports -name "*.csv" -exec cp -v {} ../_build/html/{} \;
 cd -

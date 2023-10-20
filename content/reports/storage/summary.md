@@ -225,7 +225,7 @@ scatter = alt.Chart(by_fy_s).mark_bar().encode(
         alt.Tooltip('readable_size', title='Total bytes')
     ]
 ).properties(
-    width=800,height=200
+    width=600,height=200
 ).resolve_scale(y='independent')
 
 legend = alt.Chart(by_fy_s).mark_point().encode(
