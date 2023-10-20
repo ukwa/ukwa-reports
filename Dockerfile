@@ -1,13 +1,8 @@
-FROM klakegg/hugo:0.65.3 AS hugo
+FROM python:3.11
 
-COPY . /src
+WORKDIR /ukwa-reports
 
-WORKDIR /src
+COPY setup.py .
 
-ENV HUGO_DESTINATION=/onbuild
-
-RUN hugo
-
-FROM nginx
-COPY --from=hugo /onbuild /usr/share/nginx/html/intranet
+RUN pip install --no-cache -v .
 

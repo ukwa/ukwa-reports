@@ -1,0 +1,15 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+- caption: Storage
+  chapters:
+  - file: reports/storage/summary
+  - file: reports/storage/test
+- caption: Examples
+  chapters:
+  - file: markdown
+  - file: notebooks
+  - file: markdown-notebooks
