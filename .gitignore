@@ -1,7 +1,7 @@
 _build
 .ipynb_checkpoints
 __pycache__
-content/reports/storage/*.jsonl
-content/reports/storage/*.csv
+content/storage/*.jsonl
+content/storage/*.csv
 .Trash-*
 .python-version

@@ -4,12 +4,14 @@
 format: jb-book
 root: intro
 parts:
-- caption: Storage
+- caption: Reports
   chapters:
-  - file: reports/storage/summary
-  - file: reports/storage/test
-- caption: Examples
-  chapters:
-  - file: markdown
-  - file: notebooks
-  - file: markdown-notebooks
+  - file: storage/summary
+  - file: storage/timeline
+  - file: storage/indexed
+  - file: storage/dls
+#- caption: Examples
+#  chapters:
+#  - file: markdown
+#  - file: notebooks
+#  - file: markdown-notebooks
