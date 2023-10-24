@@ -1,19 +1,34 @@
 # This Compose file is intended for local development, not production deployment.
 #
-# TODO change this file back to v.2 and set it up for local dev.
-#
 
 version: "3.2"
 
 services:
 
-  hugo:
-    build: .
+  lab:
+    # NOTE this will need to be changed for each user - for some reason username strings don't work:
+    user: "1001"
+    build:
+      context: .
+      args:
+        http_proxy: ${http_proxy}
+        https_proxy: ${https_proxy}   
     ports:
-     - "1001:80"
+    - "8888:8888"
+    command: "jupyter-lab --ip=0.0.0.0 --no-browser --NotebookApp.token='' --NotebookApp.password=''" 
+    volumes:
+    - /etc/passwd:/etc/passwd:ro
+    - /etc/group:/etc/group:ro
+    - /etc/shadow:/etc/shadow:ro
+    - /home/${USER}:/home/${USER}
+    - ${PWD}:/host
+    working_dir: /host
 
-  logviewer:
-    image: ukwa/crawl-log-viewer
+  site:
+    # Make results of build.sh available at http://<host>:8889/act/static/reports/
+    image: nginx
     ports:
-     - "8000:8000"
+    - "8889:80"
+    volumes:
+    - ./_build/html:/usr/share/nginx/html/act/static/reports:ro
 

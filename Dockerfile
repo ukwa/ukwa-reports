@@ -1,13 +1,17 @@
-FROM klakegg/hugo:0.65.3 AS hugo
+FROM python:3.11
 
-COPY . /src
+RUN apt-get install -y libffi-dev
 
-WORKDIR /src
+WORKDIR /ukwa-reports
 
-ENV HUGO_DESTINATION=/onbuild
+# Python dependencies and shared code:
+COPY setup.py .
+COPY ukwa_reports ./ukwa_reports
+RUN pip install --no-cache -v .
 
-RUN hugo
-
-FROM nginx
-COPY --from=hugo /onbuild /usr/share/nginx/html/intranet
-
+# Jupyter Book work:
+COPY content .
+COPY build.sh .
+# Default action is to run the full build script to generate output at ./_build
+# Use volumes to map input (content) and/or output (_build)
+CMD ./build.sh

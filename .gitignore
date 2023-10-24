@@ -1,3 +1,7 @@
-public
-content/crawls
-data/crawls
+_build
+.ipynb_checkpoints
+__pycache__
+content/storage/*.jsonl
+content/storage/*.csv
+.Trash-*
+.python-version
