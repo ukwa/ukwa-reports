@@ -10,7 +10,7 @@ COPY ukwa_reports ./ukwa_reports
 RUN pip install --no-cache -v .
 
 # Jupyter Book work:
-COPY content .
+COPY content content
 COPY build.sh .
 # Default action is to run the full build script to generate output at ./_build
 # Use volumes to map input (content) and/or output (_build)
