@@ -206,6 +206,29 @@ tots['timestamp_dt'] = tots['timestamp_dt'].dt.year.apply(lambda x: str(x))
 show_table_and_dl(tots, 'totals_by_year_collection')
 ```
 
++++ {"editable": true, "slideshow": {"slide_type": ""}}
+
+### Totals by Year & Stream
+
+```{code-cell} ipython3
+---
+editable: true
+slideshow:
+  slide_type: ''
+tags: [remove-input]
+---
+tots = dfu.groupby([pd.Grouper(key='timestamp_dt', freq="A"), 'stream_s']).agg(count=('file_size_l', 'count'), size=('file_size_l', 'sum'))
+tots = tots.reset_index()
+
+# Clip year:
+tots['timestamp_dt'] = tots['timestamp_dt'].dt.year.apply(lambda x: str(x))
+
+# Show table and downloader:
+show_table_and_dl(tots, 'totals_by_year_stream')
+```
+
++++ {"editable": true, "slideshow": {"slide_type": ""}}
+
 ### Totals by Year, Collection, Stream, Store & Kind
 
 ```{code-cell} ipython3
